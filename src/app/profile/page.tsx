@@ -1,7 +1,13 @@
-import React from 'react';
+"use client"
+import UserEditModel from '@/components/userProfile/userEditModel';
+import React, { useState } from 'react';
 
 const UserProfile = () => {
 
+  const[ismodelOpen,setIsModelOpen]=useState(false);
+  
+
+   
   return (
     <div className="max-w-5xl mx-auto p-6 bg-orange-400 shadow-md rounded-lg">
       {/* Profile Header */}
@@ -20,10 +26,7 @@ const UserProfile = () => {
 
         </div>
       </div>
-
-
       <div className="mt-8 grid grid-cols-12 gap-4">
-
         <div className="col-span-12 md:col-span-4 bg-gray-50 p-4 rounded-lg shadow-sm">
           <h3 className="font-semibold text-lg text-gray-700 mb-4">
             Personal Information
@@ -32,21 +35,15 @@ const UserProfile = () => {
           <p className="text-sm text-gray-600">Gender: </p>
           <p className="text-sm text-gray-600">Age: </p>
         </div>
-
-
         <div className="col-span-12 text-center text-white md:col-span-8 bg-gray-800 p-4 rounded-lg shadow-sm">
           <h3 className="font-semibold text-3xl text-white mb-4">
             Health Information
           </h3>
           <div className='flex   justify-around pb-5 flex-wrap'>
             <div className='w-[180px] h-[180px]'>
-
-
               <a href="#" className="block max-w-sm p-6  bg-red-500  border border-gray-200 rounded-lg shadow hover:bg-red-600 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
 
                 <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">HEIGHT</h2>
-
-
                 <span className='font-extrabold text-6xl'>20</span>
               </a>
 
@@ -105,9 +102,13 @@ const UserProfile = () => {
 
       {/* Action Buttons */}
       <div className="mt-8 flex space-x-4">
-        <button className="px-4 py-2 bg-blue-500 text-white rounded-md shadow hover:bg-blue-600">
-          Edit Profile
-        </button>
+     <button
+        onClick={() => setIsModelOpen(true)}
+        className="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        type="button"
+      >
+       Update Profile
+      </button>
         <button className="px-4 py-2 bg-gray-500 text-white rounded-md shadow hover:bg-gray-600">
           Change Password
         </button>
@@ -115,6 +116,8 @@ const UserProfile = () => {
           Logout
         </button>
       </div>
+      {ismodelOpen ?
+        <UserEditModel setIsModalOpen={setIsModelOpen} />:""}
     </div>
   );
 };
