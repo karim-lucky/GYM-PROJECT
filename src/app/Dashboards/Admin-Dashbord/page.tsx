@@ -15,7 +15,7 @@ import {
   // Register the required components
   ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const Dashboard = () => {
+const AdminDashboard = () => {
   const attendanceData = {
     labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
     datasets: [
@@ -92,4 +92,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default AdminDashboard;
