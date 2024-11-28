@@ -29,7 +29,7 @@ export default function RootLayout({
       <script src="https://cdn.tailwindcss.com"></script>
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+       
       >
         {children}
       </body>
